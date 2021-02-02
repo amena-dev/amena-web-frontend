@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import './assets/css/App.css';
+import './assets/css/app.scss';
+import './assets/css/_fonts.scss';
 import routes from './routes';
 
 function App() {
