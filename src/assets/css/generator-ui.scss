@@ -1,0 +1,12 @@
+@import "_variables.scss";
+
+#generator-ui {
+    position: absolute;
+    max-height: calc(100vh - #{$header-height} - #{$ui-border-radius});
+    min-height: calc(100vh - #{$header-height} - #{$ui-border-radius});
+    width: 100vw;
+    background-color: $color-dark-bg;
+    top: calc(100vh);
+    border-radius: $ui-border-radius $ui-border-radius 0 0;
+    overflow: hidden;
+}

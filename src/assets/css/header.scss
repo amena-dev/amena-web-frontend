@@ -1,0 +1,18 @@
+@import "_variables.scss";
+
+#header {
+    position: fixed;
+    height: $header-height;
+    top: $ui-expander-height / 2;
+    left: 0.5rem;
+    display: block;
+    margin: 0;
+    z-index: 100;
+
+    #logo {
+        height: 100%;
+        top: 1rem;
+        left: 1rem;
+        opacity: 0.8;
+    }
+}

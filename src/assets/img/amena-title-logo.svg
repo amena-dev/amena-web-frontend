@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="950" height="240" viewBox="0 0 950 240">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 40.16px;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        opacity: 0.9;
+      }
+
+      .cls-3 {
+        font-size: 200px;
+        fill: #fff;
+        font-family: "Avenir Next";
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <path id="三角形_1" data-name="三角形 1" class="cls-1" d="M107.981,142.979l-60.6-91.413,121.874,0.452Z"/>
+  <path id="三角形_1-2" data-name="三角形 1" class="cls-2" d="M139.006,97.015l60.589,91.42-121.874-.466Z"/>
+  <text id="Amena" class="cls-3" transform="translate(255.391 202.3)">Amena</text>
+</svg>

@@ -1,0 +1,25 @@
+@import "_variables.scss";
+
+#ui-expander {
+    bottom: 0;
+    color: white;
+    font-size: 1.5rem;
+    height: $ui-expander-height;
+    background-color: $color-dark-bg;
+    padding: 0.2% 5%;
+    border-radius: 5rem 5rem 0 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    #ui-expander-icon {
+        vertical-align: middle;
+        font-size: 1.7rem;
+        margin-left: 0.7rem;
+    }
+
+}

@@ -1,0 +1,37 @@
+@import "_variables.scss";
+
+#top {
+    #background-video {
+        position: absolute;
+        min-height: calc(100vh + #{$ui-border-radius} + 1rem);
+        min-width: 100vw;
+        display: block;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #description {
+        position: absolute;
+        bottom: $header-height + $ui-expander-height;
+        left: 1rem;
+        color: white;
+        width: 10rem;
+        font-size: 5rem;
+        opacity: 0.8;
+    }
+}
+
+@keyframes start-motion {
+    0%   {
+        transform: translateX(0)
+    }
+    40%  {
+        transform: translateX(0.6rem)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
