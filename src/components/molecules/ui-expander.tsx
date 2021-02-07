@@ -43,7 +43,7 @@ class UiExpander extends React.Component<UiExpanderProps, UiExpanderStates> {
         const bottom = element.scrollHeight - element.clientHeight;
         this.setState(state => {
             return {
-                is_expand: window.pageYOffset === bottom
+                is_expand: window.pageYOffset >= window.innerHeight
             }
         })
     }
