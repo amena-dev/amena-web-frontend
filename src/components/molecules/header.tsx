@@ -19,7 +19,7 @@ class Header extends React.Component {
         const background = document.getElementById("background-video")
 
         if(background) {
-            if(window.innerHeight - convertRemToPixels(2.5) === window.pageYOffset) {
+            if(window.innerHeight - convertRemToPixels(5) >= window.pageYOffset) {
                 background.classList.remove("expand")
                 console.log("not expand")
             }else{

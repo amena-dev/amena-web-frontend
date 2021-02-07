@@ -2,29 +2,38 @@
 
 #header {
     margin: 0;
+
     #logo {
         display: block;
-        left: 0.5rem;
-        height: $header-height;
-        top: $ui-expander-height / 2;
         position: fixed;
-        top: 1rem;
-        left: 1rem;
+        height: $header-height - 1rem;
+        top: $header-padding / 2;
+        left: $header-padding / 2;
         opacity: 0.8;
+        z-index: 5;
     }
 
     #background-video {
-        min-height: calc(100vh + #{$ui-border-radius} + 1rem);
+        // object-fit: none;
+        // min-height: $header-height;
+        min-height: 100%;
         min-width: 100vw;
+        // width: 100vw;
+        // height: 90vh;
         display: block;
         position: fixed;
+        object-position: 0% 0%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 0;
 
         &.expand {
-            min-height: $header-height;
+            top: 0;
+            object-fit: cover;
+            z-index: 4;
+            min-height: $header-height + $header-height;
+            height: $header-height;
         }
     }
 

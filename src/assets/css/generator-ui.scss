@@ -2,7 +2,7 @@
 
 #generator-ui {
     position: absolute;
-    min-height: calc(100vh - #{$header-height} - #{$ui-border-radius});
+    min-height: calc(100vh - #{$header-height});
     height: 200vh;
     width: 100vw;
     background-color: $color-dark-bg;
