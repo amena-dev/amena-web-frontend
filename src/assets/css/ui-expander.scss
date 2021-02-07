@@ -4,13 +4,15 @@
     bottom: 0;
     color: white;
     font-size: 1.5rem;
-    height: $ui-expander-height;
     background-color: $color-dark-bg;
-    padding: 0.2% 5%;
-    border-radius: 5rem 5rem 0 0;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    padding: 0.3rem 1.3rem;
+    position: fixed;
+    right: 0.3rem;
+    bottom: 0.3rem;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 100;
+    border-radius: 10px;
 
     &:hover {
         cursor: pointer;
@@ -18,8 +20,25 @@
 
     #ui-expander-icon {
         vertical-align: middle;
-        font-size: 1.7rem;
+        font-size: 1.2rem;
         margin-left: 0.7rem;
+        transform: translateY(-0.2rem);
+        animation: generate-icon-motion .8s linear 0s infinite;
     }
 
+}
+
+@keyframes generate-icon-motion {
+    0% {
+        transform: translateY(-0.2rem);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(0.1rem);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-0.2rem);
+        opacity: 1;
+    }
 }

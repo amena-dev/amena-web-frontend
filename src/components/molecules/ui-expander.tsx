@@ -1,7 +1,7 @@
 import React from 'react';
 import 'ui-neumorphism/dist/index.css'
 import '../../assets/css/ui-expander.scss'
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type UiExpanderProps = {
@@ -28,7 +28,7 @@ class UiExpander extends React.Component<UiExpanderProps, UiExpanderStates> {
     componentDidMount() {
         document.addEventListener('scroll', this.onScrolling);
     }
-      
+
     componentWillUnmount() {
         document.removeEventListener('scroll', this.onScrolling);
     }
@@ -61,9 +61,9 @@ class UiExpander extends React.Component<UiExpanderProps, UiExpanderStates> {
     render() {
         let content
         if(this.state.is_expand)
-            content = <p>What's Amena ?<FontAwesomeIcon icon={faAngleUp} id="ui-expander-icon" /></p>
+            content = <p>What's Amena?<FontAwesomeIcon icon={faAngleDoubleUp} id="ui-expander-icon" /></p>
         else
-            content = <p>Start<FontAwesomeIcon icon={faAngleDown} id="ui-expander-icon" /></p>
+            content = <p>Generate Now<FontAwesomeIcon icon={faAngleDoubleDown} id="ui-expander-icon" /></p>
 
         return (
             <div id="ui-expander" onClick={this.onClick}>
