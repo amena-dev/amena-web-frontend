@@ -17,8 +17,6 @@ class Top extends React.Component {
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
                 />
-                <video src={"/amena-web-background.mp4"} id="background-video" autoPlay loop muted>yay :)</video>
-                <p id="description">3D Photo Generator.</p>
                 <Header/>
                 <UiExpander is_expand={false}/>
                 <GeneratorUI/>

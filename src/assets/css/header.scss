@@ -1,18 +1,39 @@
 @import "_variables.scss";
 
 #header {
-    position: fixed;
-    height: $header-height;
-    top: $ui-expander-height / 2;
-    left: 0.5rem;
-    display: block;
     margin: 0;
-    z-index: 100;
-
     #logo {
-        height: 100%;
+        display: block;
+        left: 0.5rem;
+        height: $header-height;
+        top: $ui-expander-height / 2;
+        position: fixed;
         top: 1rem;
         left: 1rem;
         opacity: 0.8;
     }
+
+    #background-video {
+        border: red solid 1px;
+        min-height: calc(100vh + #{$ui-border-radius} + 1rem);
+        min-width: 100vw;
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+
+    #description {
+        position: fixed;
+        bottom: 0;
+        left: 1rem;
+        color: white;
+        width: 10rem;
+        font-size: 5rem;
+        opacity: 0.8;
+        z-index: 2;
+    }
+
 }

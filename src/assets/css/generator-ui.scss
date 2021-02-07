@@ -9,4 +9,5 @@
     top: calc(100vh);
     border-radius: $ui-border-radius $ui-border-radius 0 0;
     overflow: hidden;
+    z-index: 3;
 }
