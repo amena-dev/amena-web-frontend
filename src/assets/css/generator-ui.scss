@@ -2,12 +2,12 @@
 
 #generator-ui {
     position: absolute;
-    max-height: calc(100vh - #{$header-height} - #{$ui-border-radius});
     min-height: calc(100vh - #{$header-height} - #{$ui-border-radius});
+    height: 200vh;
     width: 100vw;
     background-color: $color-dark-bg;
     top: calc(100vh);
-    border-radius: $ui-border-radius $ui-border-radius 0 0;
+    // border-radius: 1rem 1rem 0 0;
     overflow: hidden;
     z-index: 3;
 }

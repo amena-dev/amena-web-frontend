@@ -2,6 +2,10 @@ import React from 'react';
 import '../../assets/css/header.scss'
 import Logo from '../../assets/img/amena-title-logo.svg'
 
+function convertRemToPixels(rem: number): number {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
+
 class Header extends React.Component {
     componentDidMount() {
         document.addEventListener('scroll', this.onScrolling);
@@ -12,14 +16,15 @@ class Header extends React.Component {
     }
 
     onScrolling() {
-        const centerY = window.innerHeight / 2
         const background = document.getElementById("background-video")
 
         if(background) {
-            if(window.pageYOffset <= centerY) {
+            if(window.innerHeight - convertRemToPixels(2.5) === window.pageYOffset) {
                 background.classList.remove("expand")
+                console.log("not expand")
             }else{
                 background.classList.add("expand")
+                console.log("expand")
             }
         }
     }

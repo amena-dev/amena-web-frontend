@@ -22,11 +22,15 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 0;
+
+        &.expand {
+            min-height: $header-height;
+        }
     }
 
     #description {
         position: fixed;
-        bottom: 1.8rem;
+        bottom: 0rem;
         left: 1rem;
         color: white;
         width: 10rem;
