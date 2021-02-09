@@ -49,9 +49,7 @@ class UiExpander extends React.Component<UiExpanderProps, UiExpanderStates> {
     }
 
     expand() {
-        const element = document.documentElement;
-        const bottom = element.scrollHeight - element.clientHeight;
-        window.scroll(0, bottom);
+        window.scroll(0, window.innerHeight + 1);
     }
 
     contract() {
