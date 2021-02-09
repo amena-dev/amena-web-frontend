@@ -3,14 +3,31 @@
 #header {
     margin: 0;
 
-    #logo {
+    .logo {
         display: block;
         position: fixed;
-        height: $header-height - 1rem;
-        top: $header-padding / 2;
-        left: $header-padding / 2;
+        height: $header-logo-height;
+        top: ($header-height - $header-logo-height) / 2;
+        left: 0.8rem;
         opacity: 0.8;
         z-index: 5;
+        transition-duration: 1s;
+    }
+
+    #logo-white {
+        opacity: 0.8;
+
+        &.header-mode {
+            opacity: 0;
+        }
+    }
+
+    #logo-color {
+        opacity: 0;
+
+        &.header-mode {
+            opacity: 0.8;
+        }
     }
 
     #background-video {
@@ -27,14 +44,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 0;
-
-        &.expand {
-            top: 0;
-            object-fit: cover;
-            z-index: 4;
-            min-height: $header-height + $header-height;
-            height: $header-height;
-        }
     }
 
     #description {
