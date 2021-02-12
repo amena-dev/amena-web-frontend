@@ -30,7 +30,7 @@ class Input extends React.Component<InputProps, InputStates> {
         this.uploadCard = <Card media_src={
             <form id="form-upload">
                 <label htmlFor="file-upload">
-                    <img src="/upload.svg" id="icon-upload"/>
+                    <img src="/upload.svg" id="icon-upload" className="card-media"/>
                 </label>
                 <input type="file" name="image" ref={this.fileInput} accept="image/jpeg" id="file-upload" onChange={this.onFileSelected}/>
             </form>
