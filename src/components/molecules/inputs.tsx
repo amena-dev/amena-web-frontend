@@ -35,7 +35,7 @@ class Input extends React.Component<InputProps, InputStates> {
                 </label>
                 <input type="file" name="image" ref={this.fileInput} accept="image/jpeg" id="file-upload" onChange={this.onFileSelected}/>
             </form>
-        } media_type={""}/>
+        } media_type={""} className="card-upload" is_focus_dotted={true}/>
         this.input_refresh_timer = -1
         this.state = {
             inputs: []

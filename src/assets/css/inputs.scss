@@ -25,4 +25,10 @@
     .card-media {
         opacity: 0.6;
     }
+
+    .card-upload {
+        .card-media {
+            opacity: 1;
+        }
+    }
 }

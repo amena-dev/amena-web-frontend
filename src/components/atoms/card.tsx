@@ -6,6 +6,7 @@ type CardProps = {
     media_type: string
     media_src: any
     is_focus: boolean
+    is_focus_dotted: boolean
     className: string
     is_deletable: boolean
     is_loading: boolean
@@ -22,6 +23,7 @@ class Card extends React.Component<CardProps, CardStates> {
 
     public static defaultProps = {
         is_focus: false,
+        is_focus_dotted: false,
         className: "",
         is_deletable: false,
         is_loading: false,
@@ -58,7 +60,7 @@ class Card extends React.Component<CardProps, CardStates> {
         }
 
         return (
-            <div className={"card " + this.props.className + " " + (this.props.is_focus ? "is-focus" : "")}>
+            <div className={`card ${this.props.className} ${(this.props.is_focus ? "is-focus" : "")}  ${(this.props.is_focus_dotted ? "is-focus-dotted" : "")}`}>
                 {media}
             </div>
         )

@@ -55,4 +55,9 @@
     &.is-focus {
         border-color: $color-theme;
     }
+
+    &.is-focus-dotted {
+        border-color: $color-theme;
+        border-style: dotted;
+    }
 }
