@@ -9,18 +9,17 @@
     overflow: hidden;
     position: relative;
 
-    img {
-        max-height: $card-size;
-        max-width: $card-size;
+    .card-media {
+        min-height: $card-size;
+        min-width: $card-size;
+        max-height: $card-size * 1.5;
+        max-width: $card-size * 1.5;
         display: block;
         margin: auto;
-    }
-
-    video {
-        min-width: $card-size;
-        min-height: $card-size;
-        max-width: $card-size;
-        max-height: $card-size;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     &:hover {
