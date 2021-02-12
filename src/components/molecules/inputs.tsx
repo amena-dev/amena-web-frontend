@@ -78,8 +78,12 @@ class Input extends React.Component<InputProps, InputStates> {
             const id_token = Cookies.get("id_token")
             if(id_token) {
                 await delete3dpInput(input_id, id_token)
-                this.setState({inputs: []})
-                await setTimeout(this.syncServer, 500)
+                // stateから削除ずみのcardを除く
+                this.setState({
+                    inputs: this.state.inputs.filter(input => {
+                        return input.id !== input_id
+                    })
+                })
             }
         }
     }
