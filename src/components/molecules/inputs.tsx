@@ -6,16 +6,17 @@ import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp } from "@for
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../atoms/card';
 import axios from 'axios';
-import get3dpInput from '../../api/get3dpInput';
+import get3dpInput, { get3dpInputResponse, get3dpInputResponseElement } from '../../api/get3dpInput';
 import file from '../../util/file'
 import post3dpInput from '../../api/post3dpInput';
 import Cookies from 'js-cookie';
+import delete3dpInput from '../../api/delete3dpInput';
 
 type InputProps = {
 }
 
 type InputStates = {
-    image_src_list: Array<string>
+    inputs: Array<get3dpInputResponseElement>
 }
 
 class Input extends React.Component<InputProps, InputStates> {
@@ -37,7 +38,7 @@ class Input extends React.Component<InputProps, InputStates> {
         } media_type={""}/>
         this.input_refresh_timer = -1
         this.state = {
-            image_src_list: []
+            inputs: []
         }
     }
 
@@ -61,16 +62,25 @@ class Input extends React.Component<InputProps, InputStates> {
         clearInterval(this.input_refresh_timer)
     }
 
-    async syncServer() {
+    syncServer = async () => {
         const id_token = Cookies.get("id_token")
 
         if(id_token) {
-            const inputs = await get3dpInput(id_token)
+            const res = await get3dpInput(id_token)
             this.setState({
-                image_src_list: inputs.data.results.map(input => {
-                    return input.url
-                })
+                inputs: res.data.results
             })
+        }
+    }
+
+    onDelete = (input_id: string) => {
+        return async () => {
+            const id_token = Cookies.get("id_token")
+            if(id_token) {
+                await delete3dpInput(input_id, id_token)
+                this.setState({inputs: []})
+                await setTimeout(this.syncServer, 500)
+            }
         }
     }
 
@@ -82,8 +92,8 @@ class Input extends React.Component<InputProps, InputStates> {
                 }
 
                 {
-                    this.state.image_src_list.map((src, idx) => {
-                        return <Card media_src={src} media_type="picture"/>
+                    this.state.inputs.map(input => {
+                        return <Card media_src={input.url} media_type="picture" is_deletable={true} onDelete={this.onDelete(input.id)}/>
                     })
                 }
             </div>

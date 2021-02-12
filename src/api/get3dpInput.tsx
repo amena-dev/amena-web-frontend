@@ -1,13 +1,13 @@
 import axios, { AxiosError, AxiosResponse } from "axios"
 import config from "../config/config"
 
-interface get3dpInputResponseElement {
+export interface get3dpInputResponseElement {
     id: string
     url: string
     requested_at: number
 }
 
-interface get3dpInputResponse {
+export interface get3dpInputResponse {
     results: Array<get3dpInputResponseElement>
 }
 
