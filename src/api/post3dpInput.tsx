@@ -13,7 +13,7 @@ export default (request: post3dpInputRequest, token: string): Promise<AxiosRespo
     }
 
     return axios.post(
-        config.api.path.post_3dp_input,
+        config.api.base + config.api.path.post_3dp_input,
         request,
         req_config
     )

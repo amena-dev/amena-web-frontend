@@ -1,5 +1,6 @@
 export default {
     api: {
+        base: "http://localhost:5000",
         path: {
             delete_3dp_input: "/api/3dphoto/input",
             get_3dp_input: "/api/3dphoto/input",

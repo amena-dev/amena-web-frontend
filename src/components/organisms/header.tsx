@@ -14,16 +14,14 @@ class Header extends React.Component {
 
     onScrolling() {
         const logo_class_name = "logo"
-        const is_header_mode = window.innerHeight >= window.pageYOffset
-        console.log(window.innerHeight + " " + window.pageYOffset)
+        const is_header_mode = window.innerHeight >= window.pageYOffset+1
 
         Array.from(document.getElementsByClassName(logo_class_name)).forEach(logo => {
+            // switch header mode or background mode
             if(is_header_mode) {
                 logo.classList.remove("header-mode")
-                console.log("not expand")
             }else{
                 logo.classList.add("header-mode")
-                console.log("expand")
             }
         });
     }

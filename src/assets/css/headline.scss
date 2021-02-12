@@ -1,0 +1,17 @@
+@import "_variables.scss";
+
+.headline {
+    font-size: $headline-font-size;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    vertical-align: middle;
+    // padding: 0 1.5rem;
+    // border-bottom: 0.1rem solid $color-theme;
+
+    .icon {
+        margin-right: 1.5rem;
+        font-size: 2rem;
+    }
+}

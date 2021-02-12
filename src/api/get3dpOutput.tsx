@@ -7,7 +7,7 @@ interface get3dpOutputResponseElement {
 }
 
 interface get3dpOutputResponse {
-    results: get3dpOutputResponseElement
+    results: Array<get3dpOutputResponseElement>
 }
 
 export default (token: string): Promise<AxiosResponse<get3dpOutputResponse>> => {
@@ -18,7 +18,7 @@ export default (token: string): Promise<AxiosResponse<get3dpOutputResponse>> => 
     }
 
     return axios.get<get3dpOutputResponse>(
-        config.api.path.get_3dp_input,
+        config.api.base + config.api.path.get_3dp_output,
         req_config
     )
 }

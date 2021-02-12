@@ -2,11 +2,33 @@
 
 #generator-ui {
     position: absolute;
-    min-height: calc(100vh - #{$header-height});
-    height: 200vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: $color-dark-bg;
     top: calc(100vh);
     overflow: hidden;
     z-index: 3;
+    padding-top: $ui-padding-top;
+
+    .ui-part {
+        text-align: center;
+        width: $ui-width;
+        display: block;
+        margin: auto;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+
+    .card {
+        float: left;
+    }
+
+    .cards {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .headline {
+        margin: 2rem 0 1rem 0;
+    }
 }

@@ -1,0 +1,33 @@
+@import "_variables.scss";
+
+.card {
+    width: $card-size;
+    height: $card-size;
+    border: $color-dark2-bg solid 3px;
+    margin: 0.2rem;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    position: relative;
+
+    img {
+        max-height: $card-size;
+        max-width: $card-size;
+        display: block;
+        margin: auto;
+    }
+
+    video {
+        min-width: $card-size;
+        min-height: $card-size;
+        max-width: $card-size;
+        max-height: $card-size;
+    }
+
+    &:hover {
+        border-color: $color-theme;
+    }
+
+    &.is-focus {
+        border-color: $color-theme;
+    }
+}

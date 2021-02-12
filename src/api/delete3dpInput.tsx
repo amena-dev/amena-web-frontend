@@ -9,7 +9,7 @@ export default (id: string, token: string): Promise<AxiosResponse> =>  {
     }
 
     return axios.delete(
-        `${config.api.path.delete_3dp_input}/id=${id}`,
+         `${config.api.base}${config.api.path.delete_3dp_input}/id=${id}`,
         req_config
     )
 }

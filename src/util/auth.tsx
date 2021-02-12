@@ -19,7 +19,7 @@ export default (token: string): Promise<AxiosResponse<get3dpInputResponse>> => {
     }
 
     return axios.get<get3dpInputResponse>(
-        config.api.base + config.api.path.get_3dp_input,
+        config.api.path.get_3dp_input,
         req_config
     )
 }

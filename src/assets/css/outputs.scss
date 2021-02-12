@@ -1,0 +1,8 @@
+@import "_variables.scss";
+
+#outputs {
+    &.is-empty {
+        height: $card-size * 3;
+        border: solid 3px $color-dark2-bg;
+    }
+}

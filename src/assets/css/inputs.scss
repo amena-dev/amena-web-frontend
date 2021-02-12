@@ -1,0 +1,23 @@
+@import "_variables.scss";
+
+#inputs {
+    .card {
+        position: relative;
+
+        #upload-button {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            display: block;
+            margin: auto;
+        }
+
+        #file-upload {
+            display: none;
+        }
+
+        #icon-upload {
+            cursor: pointer;
+        }
+    }
+}
