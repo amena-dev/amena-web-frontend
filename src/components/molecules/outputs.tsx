@@ -56,7 +56,7 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
             <div id="outputs" className={"cards"}>
                 {
                     this.state.image_src_list.map((src, idx) => {
-                        return <Card media_src={src} media_type="video"/>
+                        return <Card media_src={src} key={src} media_type="video"/>
                     })
                 }
             </div>
