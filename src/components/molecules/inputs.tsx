@@ -97,7 +97,7 @@ class Input extends React.Component<InputProps, InputStates> {
 
                 {
                     this.state.inputs.map(input => {
-                        return <Card media_src={input.url} key={input.id} media_type="picture" is_deletable={true} onDelete={this.onDelete(input.id)}/>
+                        return <Card media_src={input.url} key={input.id} media_type="picture" is_deletable={true} onDelete={this.onDelete(input.id)} is_loading={true}/>
                     })
                 }
             </div>

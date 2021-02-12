@@ -8,6 +8,7 @@ type CardProps = {
     is_focus: boolean
     className: string
     is_deletable: boolean
+    is_loading: boolean
     onDelete: () => Promise<any>
 }
 
@@ -23,30 +24,35 @@ class Card extends React.Component<CardProps, CardStates> {
         is_focus: false,
         className: "",
         is_deletable: false,
+        is_loading: false,
         onDelete: () => {}
     }
 
     render() {
         let media
         const delete_icon = <img className="card-delete" src="/delete.svg" onClick={async () => {await this.props.onDelete()}}></img>
+        const loading_icon = <img className="card-loading" src="/loading.gif"></img>
 
         switch(this.props.media_type) {
             case "picture":
                 media = <div>
                     <img src={this.props.media_src} className={`card-media card-media-image ${this.props.is_deletable ? "deletable" : ""}`}/>
                     {this.props.is_deletable ? delete_icon : ""}
+                    {this.props.is_loading ? loading_icon : ""}
                 </div>
                 break
             case "video":
                 media = <div>
                     <video src={this.props.media_src} className={`card-media card-media-video ${this.props.is_deletable ? "deletable" : ""}`} autoPlay muted loop></video>
                     {this.props.is_deletable ? delete_icon : ""}
+                    {this.props.is_loading ? loading_icon : ""}
                 </div>
                 break
             default:
                 media = <div className={`card-media card-media-video ${this.props.is_deletable ? "deletable" : ""}`}>
                     {this.props.media_src}
                     {this.props.is_deletable ? delete_icon : ""}
+                    {this.props.is_loading ? loading_icon : ""}
                 </div>
                 break
         }
