@@ -51,6 +51,8 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
             this.setState({
                 image_src_list: outputs.data.results.map(outputs => {
                     return outputs.url
+                }).filter(output => {
+                    if(!output.match(/error.json/)) return output
                 })
             })
         }
