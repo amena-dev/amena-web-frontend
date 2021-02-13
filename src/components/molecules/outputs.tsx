@@ -61,7 +61,7 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
             <div id="outputs" className={"cards"}>
                 {
                     this.state.image_src_list.length ? this.state.image_src_list.map((src, idx) => {
-                        return <Card media_src={src} key={src} media_type="video"/>
+                        return <Card media_src={src} key={src} media_type="video" is_downloadable={true}/>
                     }) : this.guide
                 }
             </div>

@@ -10,6 +10,7 @@ type CardProps = {
     className: string
     is_deletable: boolean
     is_loading: boolean
+    is_downloadable: boolean
     onDelete: () => Promise<any>
 }
 
@@ -27,6 +28,7 @@ class Card extends React.Component<CardProps, CardStates> {
         className: "",
         is_deletable: false,
         is_loading: false,
+        is_downloadable: false,
         onDelete: () => {}
     }
 
@@ -39,6 +41,7 @@ class Card extends React.Component<CardProps, CardStates> {
             case "picture":
                 media = <div>
                     <img src={this.props.media_src} className={`card-media card-media-image ${this.props.is_deletable ? "deletable" : ""}`}/>
+                    {this.props.is_downloadable ? <a href={this.props.media_src} className="card-download">artifact.mp4<img src="/download.svg"/></a> : ""}
                     {this.props.is_deletable ? delete_icon : ""}
                     {this.props.is_loading ? loading_icon : ""}
                 </div>
@@ -46,6 +49,7 @@ class Card extends React.Component<CardProps, CardStates> {
             case "video":
                 media = <div>
                     <video src={this.props.media_src} className={`card-media card-media-video ${this.props.is_deletable ? "deletable" : ""}`} autoPlay muted loop></video>
+                    {this.props.is_downloadable ? <a href={this.props.media_src} className="card-download"><img src="/download.svg"/></a> : ""}
                     {this.props.is_deletable ? delete_icon : ""}
                     {this.props.is_loading ? loading_icon : ""}
                 </div>
