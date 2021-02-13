@@ -3,7 +3,7 @@ import { GoogleLogin, GoogleLoginResponse } from 'react-google-login'
 import '../../assets/css/top.scss'
 import Header from '../organisms/header';
 import UiExpander from '../molecules/ui-expander';
-import GeneratorUI from '../organisms/generatorUI';
+import GeneratorUI from '../organisms/generator-ui';
 import Cookie from 'js-cookie'
 
 class Top extends React.Component {
