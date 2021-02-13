@@ -1,10 +1,5 @@
 @import "_variables.scss";
 
 #outputs {
-    width: $ui-width;
-
-    &.is-empty {
-        height: $card-size * 3;
-        border: solid 3px $color-dark2-bg;
-    }
+    text-align: left;
 }

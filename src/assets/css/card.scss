@@ -8,6 +8,8 @@
     transition-duration: 0.5s;
     overflow: hidden;
     position: relative;
+    display: inline-block;
+    vertical-align: middle;
 
     .card-media {
         min-height: $card-size;

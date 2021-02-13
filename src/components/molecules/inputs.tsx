@@ -2,7 +2,7 @@ import React, { createRef } from 'react';
 import 'ui-neumorphism/dist/index.css'
 import '../../assets/css/inputs.scss'
 import '../../assets/css/ui-expander.scss'
-import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp, faArrowCircleLeft, faArrowLeft, faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../atoms/card';
 import axios from 'axios';
@@ -20,7 +20,8 @@ type InputStates = {
 }
 
 class Input extends React.Component<InputProps, InputStates> {
-    uploadCard: JSX.Element
+    guide: JSX.Element
+    upload_card: JSX.Element
     fileInput: React.RefObject<any>
     input_refresh_timer: number
 
@@ -28,14 +29,20 @@ class Input extends React.Component<InputProps, InputStates> {
         super(props)
 
         this.fileInput = React.createRef()
-        this.uploadCard = <Card media_src={
+        this.upload_card = <Card media_src={
             <form id="form-upload">
                 <label htmlFor="file-upload">
                     <img src="/upload.svg" id="icon-upload" className="card-media"/>
                 </label>
                 <input type="file" name="image" ref={this.fileInput} accept="image/jpeg" id="file-upload" onChange={this.onFileSelected}/>
             </form>
-        } media_type={""} className="card-upload" is_focus_dotted={true}/>
+        } media_type={""} className="card-guide"/>
+
+        this.guide = <div className="guide">
+            {this.upload_card}
+            <p>Upload your photo <FontAwesomeIcon icon={faImage} className="icon" /></p>
+        </div>
+
         this.input_refresh_timer = -1
         this.state = {
             inputs: []
@@ -92,13 +99,13 @@ class Input extends React.Component<InputProps, InputStates> {
         return (
             <div className="cards" id="inputs">
                 {
-                    this.uploadCard
+                    this.state.inputs.length ?  this.upload_card : ""
                 }
 
                 {
-                    this.state.inputs.map(input => {
+                    this.state.inputs.length ? (this.state.inputs.map(input => {
                         return <Card media_src={input.url} key={input.id} media_type="picture" is_deletable={true} onDelete={this.onDelete(input.id)} is_loading={true}/>
-                    })
+                    })) : this.guide
                 }
             </div>
         )

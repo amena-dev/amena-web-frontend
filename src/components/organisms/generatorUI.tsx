@@ -12,14 +12,15 @@ class GeneratorUI extends React.Component {
     render() {
         return (
             <div id="generator-ui">
-                <div id="input-ui" className="ui-part">
-                    <Input />
-                </div>
+                <div id="ui">
+                    <div id="input-ui" className="ui-part">
+                        <Input />
+                    </div>
 
-                <div id="output-ui" className="ui-part">
-                    <Output />
+                    <div id="output-ui" className="ui-part">
+                        <Output />
+                    </div>
                 </div>
-
             </div>
         )
     }

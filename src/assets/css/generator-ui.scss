@@ -6,29 +6,70 @@
     width: 100vw;
     background-color: $color-dark-bg;
     top: calc(100vh);
-    overflow: hidden;
+    overflow: auto;
     z-index: 3;
     padding-top: $ui-padding-top;
+    overflow: auto;
 
-    .ui-part {
+    #ui {
+        max-width: $ui-width;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
-        width: $ui-width;
-        display: block;
-        margin: auto;
-        overflow: hidden;
-        margin-top: 1rem;
+        overflow: auto;
+        // width: $ui-width;
+        // display: block;
+        // margin: auto;
+        // border: solid 1px red;
     }
 
-    .card {
-        float: left;
+    .ui-part {
+        text-align: left;
+        display: block;
+        margin: auto;
+        margin-top: 2rem;
+        overflow: auto;
     }
 
     .cards {
         margin-top: 1rem;
-        text-align: center;
+        overflow: auto;
     }
 
     .headline {
         margin: 2rem 0 1rem 0;
     }
+
+    .guide {
+        font-size: 2.5rem;
+
+        p {
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 2rem;
+            // border-left: solid 1px white;
+            border-bottom: solid 1px white;
+            padding: 0.5rem 2rem;
+        }
+
+        .icon {
+            margin-left: 0.5rem;
+            font-size: 2.5rem;
+            vertical-align: middle;
+        }
+    }
+
+    .card-guide {
+        opacity: 1 !important;
+
+        .card-media {
+            max-width: $card-size * 0.8 !important;
+            max-height: $card-size * 0.8 !important;
+            min-width: $card-size * 0.8 !important;
+            min-height: $card-size * 0.8 !important;
+        }
+    }
+
 }

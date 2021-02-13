@@ -1,6 +1,9 @@
 @import "_variables.scss";
 
 #inputs {
+    text-align: left;
+    display: block;
+
     .card {
         position: relative;
 
@@ -26,9 +29,37 @@
         opacity: 0.6;
     }
 
-    .card-upload {
-        .card-media {
+    .card-guide {
+        .card-media{
             opacity: 1;
+            max-width: $card-size * 0.7 !important;
+            max-height: $card-size * 0.7 !important;
+            min-width: $card-size * 0.7 !important;
+            min-height: $card-size * 0.7 !important;
         }
+
+        border: none;
+        background-image: repeating-linear-gradient(0deg, $color-theme, $color-theme 10px, transparent 10px, transparent 20px, $color-theme 20px), repeating-linear-gradient(90deg, $color-theme, $color-theme 10px, transparent 10px, transparent 20px, $color-theme 20px), repeating-linear-gradient(180deg, $color-theme, $color-theme 10px, transparent 10px, transparent 20px, $color-theme 20px), repeating-linear-gradient(270deg, $color-theme, $color-theme 10px, transparent 10px, transparent 20px, $color-theme 20px);
+        background-size: 3px calc(100% + 20px), calc(100% + 20px) 3px, 3px calc(100% + 20px) , calc(100% + 20px) 3px;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        background-repeat: no-repeat;
+        animation: borderAnimation 1s infinite linear;
+
+        @keyframes borderAnimation {
+            from { background-position: 0 0, -20px 0, 100% -20px, 0 100%; }
+            to { background-position: 0 -20px, 0 0, 100% 0, -20px 100%; }
+        }
+    }
+}
+
+@keyframes upload-card-motion {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
     }
 }

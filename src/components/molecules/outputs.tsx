@@ -2,7 +2,7 @@ import React from 'react';
 import 'ui-neumorphism/dist/index.css'
 import '../../assets/css/outputs.scss'
 import '../../assets/css/ui-expander.scss'
-import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp, faCubes, faArrowCircleDown, faArrowCircleUp, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../atoms/card';
 import axios from 'axios';
@@ -18,6 +18,7 @@ type OutputStates = {
 
 class Outputs extends React.Component<OutputProps, OutputStates> {
     output_refresh_timer: number
+    guide: JSX.Element
 
     constructor(props: any) {
         super(props);
@@ -25,6 +26,10 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
             image_src_list: []
         }
         this.output_refresh_timer = -1
+        this.guide = <div className="guide">
+            <Card media_src={"/artifacts.png"} media_type={"picture"} is_focus={true} className="card-guide"/>
+            <p>Artifacts here<FontAwesomeIcon icon={faCheckCircle} className="icon" /></p>
+            </div>
     }
 
     async componentDidMount() {
@@ -55,9 +60,9 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
         return (
             <div id="outputs" className={"cards"}>
                 {
-                    this.state.image_src_list.map((src, idx) => {
+                    this.state.image_src_list.length ? this.state.image_src_list.map((src, idx) => {
                         return <Card media_src={src} key={src} media_type="video"/>
-                    })
+                    }) : this.guide
                 }
             </div>
         )
