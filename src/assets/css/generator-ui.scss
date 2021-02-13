@@ -1,7 +1,7 @@
 @import "_variables.scss";
 
 #generator-ui {
-    position: absolute;
+    position: relative;
     min-height: 100vh;
     width: 100vw;
     background-color: $color-dark-bg;
@@ -19,10 +19,7 @@
         transform: translate(-50%, -50%);
         text-align: center;
         overflow: auto;
-        // width: $ui-width;
-        // display: block;
-        // margin: auto;
-        // border: solid 1px red;
+        margin-top: $ui-padding-top;
     }
 
     .ui-part {
