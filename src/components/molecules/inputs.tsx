@@ -58,7 +58,7 @@ class Input extends React.Component<InputProps, InputStates> {
                 const inputed = await post3dpInput({base64: base64}, id_token)
                 await this.syncServer()
             }catch(e) {
-                error.handle(e)
+                error.axiosHandle(e)
             }
         }
     }
