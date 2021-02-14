@@ -64,7 +64,8 @@ class Input extends React.Component<InputProps, InputStates> {
         }catch(e){ console.error(e) }
 
         this.input_refresh_timer = window.setInterval(() => {
-            this.syncServer()
+            try{this.syncServer()}
+            catch(e){console.error(e)}
         }, 60000)
     }
 
@@ -75,17 +76,13 @@ class Input extends React.Component<InputProps, InputStates> {
     syncServer = async () => {
         const id_token = Cookies.get("id_token")
 
-        try{
-            if(id_token) {
-                    const res = await get3dpInput(id_token)
-                    this.setState({
-                        inputs: res.data.results
-                    })
-            }else{
-                throw new Error("Please login.")
-            }
-        }catch(e) {
-            error.handle(e)
+        if(id_token) {
+                const res = await get3dpInput(id_token)
+                this.setState({
+                    inputs: res.data.results
+                })
+        }else{
+            throw new Error("Please login.")
         }
     }
 

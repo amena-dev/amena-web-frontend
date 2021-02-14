@@ -38,7 +38,8 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
         catch(e) { console.error(e) }
 
         this.output_refresh_timer = window.setInterval(() => {
-            this.syncServer()
+            try{this.syncServer()}
+            catch(e){console.error(e)}
         }, 60000)
     }
 
@@ -49,20 +50,18 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
     async syncServer() {
         const id_token = Cookies.get("id_token")
 
-        try {
-            if(id_token) {
-                const outputs = await get3dpOutput(id_token)
-                console.log(outputs)
-                this.setState({
-                    image_src_list: outputs.data.results.map(outputs => {
-                        return outputs.url
-                    }).filter(output => {
-                        if(!output.match(/error.json/)) return output
-                    })
+        if(id_token) {
+            const outputs = await get3dpOutput(id_token)
+            console.log(outputs)
+            this.setState({
+                image_src_list: outputs.data.results.map(outputs => {
+                    return outputs.url
+                }).filter(output => {
+                    if(!output.match(/error.json/)) return output
                 })
-            }
-        }catch(e) {
-            error.handle(e)
+            })
+        }else{
+            throw new Error("Please login.")
         }
     }
 
