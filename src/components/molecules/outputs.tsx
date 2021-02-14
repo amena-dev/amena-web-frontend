@@ -37,8 +37,8 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
         try{await this.syncServer()}
         catch(e) { console.error(e) }
 
-        this.output_refresh_timer = window.setInterval(() => {
-            try{this.syncServer()}
+        this.output_refresh_timer = window.setInterval(async () => {
+            try{await this.syncServer()}
             catch(e){console.error(e)}
         }, 60000)
     }

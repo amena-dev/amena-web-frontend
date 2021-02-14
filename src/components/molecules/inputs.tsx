@@ -63,8 +63,8 @@ class Input extends React.Component<InputProps, InputStates> {
         try{ await this.syncServer()
         }catch(e){ console.error(e) }
 
-        this.input_refresh_timer = window.setInterval(() => {
-            try{this.syncServer()}
+        this.input_refresh_timer = window.setInterval(async () => {
+            try{await this.syncServer()}
             catch(e){console.error(e)}
         }, 60000)
     }
