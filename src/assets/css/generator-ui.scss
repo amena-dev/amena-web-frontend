@@ -8,21 +8,19 @@
     top: calc(100vh);
     overflow: auto;
     z-index: 3;
-    padding-top: $ui-padding-top;
     overflow: auto;
+    padding-top: 50%;
 
     #ui {
-        // position: absolute;
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         min-width: $ui-width;
         width: $ui-width;
-        display: block;
         text-align: center;
         overflow: auto;
         margin: auto;
-        // margin-top: $header-height * -1;
     }
 
     .ui-part {
