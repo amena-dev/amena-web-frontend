@@ -22,6 +22,7 @@
         text-align: center;
         overflow: auto;
         margin: auto;
+        margin-top: $header-height * -1;
     }
 
     .ui-part {
