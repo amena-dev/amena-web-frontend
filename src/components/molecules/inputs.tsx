@@ -11,6 +11,7 @@ import file from '../../util/file'
 import post3dpInput from '../../api/post3dpInput';
 import Cookies from 'js-cookie';
 import delete3dpInput from '../../api/delete3dpInput';
+import error from '../../util/error'
 
 type InputProps = {
 }
@@ -59,7 +60,9 @@ class Input extends React.Component<InputProps, InputStates> {
     }
 
     async componentDidMount() {
-        await this.syncServer()
+        try{ await this.syncServer()
+        }catch(e){ console.error(e) }
+
         this.input_refresh_timer = window.setInterval(() => {
             this.syncServer()
         }, 60000)
@@ -72,11 +75,17 @@ class Input extends React.Component<InputProps, InputStates> {
     syncServer = async () => {
         const id_token = Cookies.get("id_token")
 
-        if(id_token) {
-            const res = await get3dpInput(id_token)
-            this.setState({
-                inputs: res.data.results
-            })
+        try{
+            if(id_token) {
+                    const res = await get3dpInput(id_token)
+                    this.setState({
+                        inputs: res.data.results
+                    })
+            }else{
+                throw new Error("Please login.")
+            }
+        }catch(e) {
+            error.handle(e)
         }
     }
 

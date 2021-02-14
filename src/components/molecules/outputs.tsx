@@ -8,6 +8,7 @@ import Card from '../atoms/card';
 import axios from 'axios';
 import get3dpOutput from '../../api/get3dpOutput';
 import Cookies from 'js-cookie';
+import error from '../../util/error';
 
 type OutputProps = {
 }
@@ -33,7 +34,9 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
     }
 
     async componentDidMount() {
-        await this.syncServer()
+        try{await this.syncServer()}
+        catch(e) { console.error(e) }
+
         this.output_refresh_timer = window.setInterval(() => {
             this.syncServer()
         }, 60000)
@@ -45,16 +48,21 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
 
     async syncServer() {
         const id_token = Cookies.get("id_token")
-        if(id_token) {
-            const outputs = await get3dpOutput(id_token)
-            console.log(outputs)
-            this.setState({
-                image_src_list: outputs.data.results.map(outputs => {
-                    return outputs.url
-                }).filter(output => {
-                    if(!output.match(/error.json/)) return output
+
+        try {
+            if(id_token) {
+                const outputs = await get3dpOutput(id_token)
+                console.log(outputs)
+                this.setState({
+                    image_src_list: outputs.data.results.map(outputs => {
+                        return outputs.url
+                    }).filter(output => {
+                        if(!output.match(/error.json/)) return output
+                    })
                 })
-            })
+            }
+        }catch(e) {
+            error.handle(e)
         }
     }
 
