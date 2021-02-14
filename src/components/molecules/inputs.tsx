@@ -52,14 +52,16 @@ class Input extends React.Component<InputProps, InputStates> {
 
     onFileSelected = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const id_token = Cookies.get("id_token")
-        if(event.target.files && id_token) {
-            try{
+        try{
+            if(event.target.files && id_token) {
                 const base64: string = await file.toBase64(event.target.files[0])
                 const inputed = await post3dpInput({base64: base64}, id_token)
                 await this.syncServer()
-            }catch(e) {
-                error.axiosHandle(e)
+            }else{
+                throw new Error("Please login.")
             }
+        }catch(e) {
+            error.axiosHandle(e)
         }
     }
 
