@@ -1,0 +1,38 @@
+@import "_variables.scss";
+
+#account {
+    position: absolute;
+    z-index: 100;
+    // width: 10rem;
+    $margin: 1rem;
+    top: calc(100vh + #{$margin});
+    right: $margin;
+
+    svg {
+        display: block !important;
+    }
+
+    div {
+        margin-right: 0px !important;
+    }
+
+    .logout-button {
+        display: none !important;
+        width: 100%;
+    }
+
+    .login-button {
+        display: inline-flex !important;
+        width: 100%;
+    }
+
+    &.logged-in {
+        .logout-button {
+            display: inline-flex !important;
+        }
+
+        .login-button {
+            display: none !important;
+        }
+    }
+}
