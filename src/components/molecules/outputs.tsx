@@ -28,7 +28,7 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
         }
         this.output_refresh_timer = -1
         this.guide = <div className="guide">
-            <Card media_src={"/artifacts.png"} media_type={"picture"} is_focus={true} className="card-guide"/>
+            <Card media_src={"/artifacts.svg"} media_type={"picture"} is_focus={true} className="card-guide"/>
             <p>Artifacts here<FontAwesomeIcon icon={faCheckCircle} className="icon" /></p>
             </div>
     }

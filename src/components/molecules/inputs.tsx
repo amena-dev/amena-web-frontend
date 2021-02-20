@@ -2,7 +2,7 @@ import React, { createRef } from 'react';
 import 'ui-neumorphism/dist/index.css'
 import '../../assets/css/inputs.scss'
 import '../../assets/css/ui-expander.scss'
-import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp, faArrowCircleLeft, faArrowLeft, faImage } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp, faArrowCircleLeft, faArrowLeft, faImage, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../atoms/card';
 import axios from 'axios';

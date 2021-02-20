@@ -17,7 +17,7 @@
         width: $ui-width;
         text-align: center;
         display: block;
-        overflow: auto;
+        overflow: hidden !important;
         margin: auto;
     }
 
@@ -63,10 +63,10 @@
         opacity: 1 !important;
 
         .card-media {
-            max-width: $card-size * 0.8 !important;
-            max-height: $card-size * 0.8 !important;
-            min-width: $card-size * 0.8 !important;
-            min-height: $card-size * 0.8 !important;
+            max-width: $card-size * 0.7 !important;
+            max-height: $card-size * 0.7 !important;
+            min-width: $card-size * 0.7 !important;
+            min-height: $card-size * 0.7 !important;
         }
     }
 

@@ -32,10 +32,16 @@
     .card-guide {
         .card-media{
             opacity: 1;
-            max-width: $card-size * 0.7 !important;
-            max-height: $card-size * 0.7 !important;
-            min-width: $card-size * 0.7 !important;
-            min-height: $card-size * 0.7 !important;
+            transition-duration: .3s !important;
+        }
+
+        &:hover {
+            .card-media{
+                max-width: $card-size * 0.75 !important;
+                max-height: $card-size * 0.75 !important;
+                min-width: $card-size * 0.75 !important;
+                min-height: $card-size * 0.75 !important;
+            }
         }
 
         border: none;
