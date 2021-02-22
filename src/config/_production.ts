@@ -1,6 +1,6 @@
 export default {
     api: {
-        base: "http://amena-web-backend:8080",
+        base: "http://localhost:3000/api",
         path: {
             delete_3dp_input: "/api/3dphoto/input",
             get_3dp_input: "/api/3dphoto/input",
