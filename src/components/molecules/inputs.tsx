@@ -56,6 +56,7 @@ class Input extends React.Component<InputProps, InputStates> {
             if(event.target.files && id_token) {
                 const base64: string = await file.toBase64(event.target.files[0])
                 const inputed = await post3dpInput({base64: base64}, id_token)
+                event.target.value = ""
                 await this.syncServer()
             }else{
                 throw new Error("Please login.")
