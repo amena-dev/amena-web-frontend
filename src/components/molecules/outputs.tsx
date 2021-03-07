@@ -34,8 +34,10 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
     }
 
     async componentDidMount() {
-        try{await this.syncServer()}
-        catch(e) { console.error(e) }
+        setTimeout(async () => {
+            try{await this.syncServer()}
+            catch(e) { console.error(e) }
+        }, 1000)
 
         this.output_refresh_timer = window.setInterval(async () => {
             try{await this.syncServer()}
