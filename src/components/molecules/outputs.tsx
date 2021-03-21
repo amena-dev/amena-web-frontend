@@ -6,7 +6,7 @@ import { faAngleDoubleDown, faAngleDoubleUp, faAngleDown, faAngleUp, faCubes, fa
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from '../atoms/card';
 import axios from 'axios';
-import get3dpOutput from '../../api/get3dpOutput';
+import get3dpOutput, { get3dpOutputResponseElement } from '../../api/get3dpOutput';
 import Cookies from 'js-cookie';
 import error from '../../util/error';
 
@@ -14,7 +14,7 @@ type OutputProps = {
 }
 
 type OutputStates = {
-    image_src_list: Array<string>
+    outputs: Array<get3dpOutputResponseElement>
 }
 
 class Outputs extends React.Component<OutputProps, OutputStates> {
@@ -24,24 +24,24 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
     constructor(props: any) {
         super(props);
         this.state = {
-            image_src_list: []
+            outputs: []
         }
         this.output_refresh_timer = -1
         this.guide = <div className="guide">
-            <Card media_src={"/artifacts.svg"} media_type={"picture"} is_focus={true} className="card-guide"/>
+            <Card media_src={"/artifacts.svg"} media_type={"picture"} is_focus={true} className="card-guide" />
             <p>Artifacts here<FontAwesomeIcon icon={faCheckCircle} className="icon" /></p>
-            </div>
+        </div>
     }
 
     async componentDidMount() {
         setTimeout(async () => {
-            try{await this.syncServer()}
-            catch(e) { console.error(e) }
+            try { await this.syncServer() }
+            catch (e) { console.error(e) }
         }, 1000)
 
         this.output_refresh_timer = window.setInterval(async () => {
-            try{await this.syncServer()}
-            catch(e){console.error(e)}
+            try { await this.syncServer() }
+            catch (e) { console.error(e) }
         }, 60000)
     }
 
@@ -52,17 +52,15 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
     async syncServer() {
         const id_token = Cookies.get("id_token")
 
-        if(id_token) {
+        if (id_token) {
             const outputs = await get3dpOutput(id_token)
             console.log(outputs)
             this.setState({
-                image_src_list: outputs.data.results.map(outputs => {
-                    return outputs.url
-                }).filter(output => {
-                    if(!output.match(/error.json/)) return output
+                outputs: outputs.data.results.filter(output => {
+                    if (!output.url.match(/error.json/)) return output
                 })
             })
-        }else{
+        } else {
             throw new Error("Please login.")
         }
     }
@@ -71,8 +69,8 @@ class Outputs extends React.Component<OutputProps, OutputStates> {
         return (
             <div id="outputs" className={"cards"}>
                 {
-                    this.state.image_src_list.length ? this.state.image_src_list.map((src, idx) => {
-                        return <Card media_src={src} key={src} media_type="video" is_downloadable={true}/>
+                    this.state.outputs.length ? this.state.outputs.sort((a, b) => a.created_at - b.created_at).map(output => {
+                        return <Card media_src={output.url} key={output.url} media_type="video" is_downloadable={true} />
                     }) : this.guide
                 }
             </div>

@@ -118,7 +118,7 @@ class Input extends React.Component<InputProps, InputStates> {
                 }
 
                 {
-                    this.state.inputs.length ? (this.state.inputs.map(input => {
+                    this.state.inputs.length ? (this.state.inputs.sort((a, b) => a.requested_at - b.requested_at).map(input => {
                         return <Card media_src={input.url} key={input.id} media_type="picture" is_deletable={true} onDelete={this.onDelete(input.id)} is_loading={true}/>
                     })) : this.guide
                 }
